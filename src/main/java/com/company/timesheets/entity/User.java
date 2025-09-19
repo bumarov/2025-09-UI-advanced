@@ -1,5 +1,6 @@
 package com.company.timesheets.entity;
 
+import io.jmix.core.FileRef;
 import io.jmix.core.HasTimeZone;
 import io.jmix.core.annotation.DeletedBy;
 import io.jmix.core.annotation.DeletedDate;
@@ -30,6 +31,9 @@ public class User implements JmixUserDetails, HasTimeZone {
     @Column(name = "ID", nullable = false)
     @JmixGeneratedValue
     private UUID id;
+
+    @Column(name = "AVATAR", length = 1024)
+    private FileRef avatar;
 
     @Version
     @Column(name = "VERSION", nullable = false)
@@ -69,6 +73,14 @@ public class User implements JmixUserDetails, HasTimeZone {
 
     @Transient
     protected Collection<? extends GrantedAuthority> authorities;
+
+    public FileRef getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(FileRef avatar) {
+        this.avatar = avatar;
+    }
 
     public OffsetDateTime getDeletedDate() {
         return deletedDate;

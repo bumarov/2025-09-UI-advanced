@@ -17,6 +17,11 @@
         <dataLoadCoordinator auto="true"/>
     </facets>
     <layout>
+        <image id="avatarImage"
+               dataContainer="userDc"
+               property="avatar"
+               width="20em"
+               height="30em" themeNames="contain"/>
         <formLayout id="form" dataContainer="userDc">
             <textField id="usernameField" property="username" readOnly="true"/>
             <passwordField id="passwordField"
@@ -32,6 +37,7 @@
             <textField id="emailField" property="email"/>
             <comboBox id="timeZoneField" property="timeZoneId" clearButtonVisible="true"/>
             <checkbox id="activeField" property="active"/>
+            <fileStorageUploadField id="avatarField" property="avatar"/>
         </formLayout>
         <hbox id="detailActions">
             <button id="saveAndCloseButton" action="saveAction"/>

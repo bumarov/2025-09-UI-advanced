@@ -5,12 +5,10 @@ import com.company.timesheets.view.main.MainView;
 import com.vaadin.flow.router.Route;
 import io.jmix.flowui.view.*;
 
-@Route(value = "clients", layout = MainView.class)
-@ViewController("ts_Client.list")
-@ViewDescriptor("client-list-view.xml")
-@LookupComponent("clientsDataGrid")
-@PrimaryLookupView(Client.class)
-@DialogMode(width = "64em")
-public class ClientListView extends StandardListView<Client> {
 
+@ViewController(id = "ts_Client.lookup")
+@ViewDescriptor(path = "client-lookup-view.xml")
+@LookupComponent("clientsDataGrid")
+@DialogMode(width = "64em")
+public class ClientLookupView extends StandardListView<Client> {
 }
