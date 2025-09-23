@@ -38,6 +38,7 @@
             <properties include=".*"/>
         </genericFilter>
         <hbox id="buttonsPanel" classNames="buttons-panel">
+            <button id="createTimeEntryBtn" action="tasksDataGrid.createTimeEntry"/>
             <button id="readBtn" action="tasksDataGrid.read"/>
             <simplePagination id="pagination" dataLoader="tasksDl"/>
         </hbox>
@@ -48,6 +49,11 @@
                   columnReorderingAllowed="true">
             <actions>
                 <action id="read" type="list_read"/>
+                <action id="createTimeEntry"
+                        text="msg://createTimeEntry.text"
+                        icon="lumo:plus"
+                        type="list_itemTracking"
+                        actionVariant="PRIMARY"/>
             </actions>
             <columns resizable="true">
                 <column property="project"/>

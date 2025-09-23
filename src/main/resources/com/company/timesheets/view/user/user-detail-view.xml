@@ -37,7 +37,7 @@
             <textField id="emailField" property="email"/>
             <comboBox id="timeZoneField" property="timeZoneId" clearButtonVisible="true"/>
             <checkbox id="activeField" property="active"/>
-            <fileStorageUploadField id="avatarField" property="avatar"/>
+            <fileStorageUploadField id="avatarField" property="avatar" fileStorageName="s3"/>
         </formLayout>
         <hbox id="detailActions">
             <button id="saveAndCloseButton" action="saveAction"/>
