@@ -13,6 +13,12 @@
     </data>
     <facets>
         <dataLoadCoordinator auto="true"/>
+        <urlQueryParameters>
+            <genericFilter component="genericFilter"/>
+            <pagination component="pagination"/>
+        </urlQueryParameters>
+        <timer id="timer" delay="1000" repeating="true"/>
+        <settings auto="true"/>
     </facets>
     <layout>
         <genericFilter id="genericFilter" dataLoader="timeEntriesDl">
@@ -23,6 +29,7 @@
             <button id="editBtn" action="timeEntriesDataGrid.edit"/>
             <button id="removeBtn" action="timeEntriesDataGrid.remove"/>
             <button id="copyBtn" action="timeEntriesDataGrid.copy"/>
+            <button id="timerBtn" text="msg://timerBtn.text" icon="STOPWATCH"/>
             <simplePagination id="pagination" dataLoader="timeEntriesDl"/>
         </hbox>
         <dataGrid id="timeEntriesDataGrid"

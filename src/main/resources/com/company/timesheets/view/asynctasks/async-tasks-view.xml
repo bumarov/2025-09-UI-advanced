@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://asyncTasksView.title">
+    <layout>
+        <vbox>
+            <button id="performWithoutResultBtn" text="msg://performWithoutResultBtn.text"/>
+            <textField id="inputField" clearButtonVisible="true"/>
+            <button id="performWithResultBtn" text="msg://performWithResultBtn.text"/>
+        </vbox>
+    </layout>
+</view>
