@@ -43,7 +43,8 @@
                    dataContainer="clientDc"
                    property="name"
                    label="msg://com.company.timesheets.entity/Client.name"
-                   width="100%" maxWidth="30em">
+                   width="100%" maxWidth="30em"
+                   classNames="bordered">
             <prefix>
                 <icon icon="USER_CARD"/>
             </prefix>
@@ -51,13 +52,14 @@
 
         <details id="contactInformationDetails"
                  width="100%" opened="true"
-                 summaryText="msg://contactInformationDetails.summaryText">
+                 summaryText="msg://contactInformationDetails.summaryText"
+        themeNames="summary-filled non-collapsible bordered">
             <formLayout dataContainer="contactInformationDc">
                 <responsiveSteps>
                     <responsiveStep minWidth="0" columns="1"/>
                     <responsiveStep minWidth="60em" columns="3"/>
                 </responsiveSteps>
-                <emailField id="emailField" property="email">
+                <emailField id="emailField" property="email" classNames="bordered">
                     <prefix>
                         <icon icon="ENVELOPE"/>
                     </prefix>

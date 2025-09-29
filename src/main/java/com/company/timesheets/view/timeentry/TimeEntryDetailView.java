@@ -7,11 +7,15 @@ import com.company.timesheets.entity.TimeEntryStatus;
 import com.company.timesheets.entity.User;
 import com.company.timesheets.view.main.MainView;
 import com.company.timesheets.view.task.TaskLookupView;
+import com.vaadin.flow.component.AbstractField;
+import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.data.provider.Query;
 import com.vaadin.flow.router.Route;
 import io.jmix.core.usersubstitution.CurrentUserSubstitution;
 import io.jmix.flowui.DialogWindows;
 import io.jmix.flowui.component.combobox.EntityComboBox;
+import io.jmix.flowui.component.select.JmixSelect;
 import io.jmix.flowui.component.textarea.JmixTextArea;
 import io.jmix.flowui.component.valuepicker.EntityPicker;
 import io.jmix.flowui.kit.action.ActionPerformedEvent;
@@ -45,6 +49,8 @@ public class TimeEntryDetailView extends StandardDetailView<TimeEntry> {
     private boolean ownTimeEntry = false;
     @Autowired
     private TaskSupport taskSupport;
+    @ViewComponent
+    private JmixSelect<TimeEntryStatus> statusField;
 
     @Subscribe
     public void onQueryParametersChange(final QueryParametersChangeEvent event) {
@@ -133,6 +139,45 @@ public class TimeEntryDetailView extends StandardDetailView<TimeEntry> {
                 ? taskSupport.getUserActiveTasks(user, query.getOffset(), query.getLimit(), filter)
                 : taskSupport.getActiveTasks(query.getOffset(), query.getLimit(), filter);
     }
-    
-    
+
+    @Subscribe
+    public void onReady(final ReadyEvent event) {
+        updateStatusFieldIcon();
+    }
+
+    @Subscribe("statusField")
+    public void onStatusFieldComponentValueChange(final AbstractField.ComponentValueChangeEvent<JmixSelect<TimeEntryStatus>, TimeEntryStatus> event) {
+        updateStatusFieldIcon();
+    }
+
+
+
+    private void updateStatusFieldIcon() {
+    TimeEntryStatus status = statusField.getValue();
+        Icon icon = status == null
+                ? null
+                : switch (status) {
+            case NEW -> {
+                Icon newIcon = VaadinIcon.PLUS_CIRCLE_O.create();
+                newIcon.setColor("var(--lumo-primary-color)");
+                yield newIcon;
+            }
+            case APPROVED -> {
+                Icon newIcon = VaadinIcon.CHECK_CIRCLE_O.create();
+                newIcon.setColor("var(--lumo-success-color)");
+                yield newIcon;
+            }
+            case REJECTED -> {
+                Icon newIcon = VaadinIcon.EXCLAMATION_CIRCLE_O.create();
+                newIcon.setColor("var(--lumo-error-color)");
+                yield newIcon;
+            }
+            case CLOSED -> VaadinIcon.CLOSE_CIRCLE_O.create();
+        };
+
+        statusField.setPrefixComponent(icon);
+
+    }
+
+
 }

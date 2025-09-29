@@ -20,9 +20,16 @@ repositories {
     maven {
         url 'https://global.repo.jmix.io/repository/public'
     }
+    mavenLocal()
 }
 
 dependencies {
+
+    implementation 'com.company:my-theme:1.0-SNAPSHOT'
+
+    implementation 'io.jmix.superset:jmix-superset-flowui-starter'
+    implementation 'io.jmix.superset:jmix-superset-starter'
+
     implementation 'io.jmix.pessimisticlock:jmix-pessimisticlock-starter'
     implementation 'io.jmix.pessimisticlock:jmix-pessimisticlock-flowui-starter'
 
