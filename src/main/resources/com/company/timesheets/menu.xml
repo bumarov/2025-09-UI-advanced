@@ -14,6 +14,7 @@
         <item view="ts_Client.list" title="msg://com.company.timesheets.view.client/clientListView.title"/>
         <item view="ts_Project.list" title="msg://com.company.timesheets.view.project/projectListView.title"/>
         <item view="ts_TimeEntry.list" title="msg://com.company.timesheets.view.timeentry/timeEntryListView.title"/>
+        <item view="ts_MyBoardView" title="msg://com.company.timesheets.view.myboard/myBoardView.title"/>
     </menu>
     <menu id="settings" description="msg://com.company.timesheets/menu_config.settings.description"
           title="msg://com.company.timesheets/menu_config.settings.title">

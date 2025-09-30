@@ -44,14 +44,17 @@
             <refresh loader="projectDl">
                 <onViewEvent type="BeforeShow"/>
             </refresh>
+            <refresh loader="clientsDl">
+                <onViewEvent type="BeforeShow"/>
+            </refresh>
         </dataLoadCoordinator>
     </facets>
     <actions>
         <action id="saveAction" type="detail_saveClose"/>
         <action id="closeAction" type="detail_close"/>
     </actions>
-    <layout padding="false" expand="wrapper" spacing="false">
-        <vbox id="wrapper" expand="tabSheet" css="overflow: auto">
+    <layout padding="false" expand="wrapper" spacing="false" alignItems="STRETCH">
+        <vbox id="wrapper" expand="tabSheet" css="overflow: auto" padding="false">
             <tabSheet id="tabSheet" width="100%" minHeight="30em">
                 <tab id="formTab" label="msg://com.company.timesheets.entity/Project">
                     <formLayout id="form" dataContainer="projectDc">
@@ -135,7 +138,7 @@
             </tabSheet>
         </vbox>
 
-        <hbox id="detailActions">
+        <hbox id="detailActions" classNames="px-m py-xs bg-contrast-5">
             <button id="saveAndCloseBtn" action="saveAction"/>
             <button id="closeBtn" action="closeAction"/>
         </hbox>
