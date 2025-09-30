@@ -1,5 +1,6 @@
 package com.company.timesheets.view.main;
 
+import com.company.timesheets.component.slider.Slider;
 import com.company.timesheets.component.themetoggle.ThemeToggle;
 import com.company.timesheets.entity.TimeEntry;
 import com.company.timesheets.event.TimeEntryChangedEvent;
@@ -66,5 +67,10 @@ public class MainView extends StandardMainView {
     @Subscribe("themeToggle")
     public void onThemeToggleThemeToggleThemeChanged(final ThemeToggle.ThemeToggleThemeChangedEvent event) {
         notifications.show("Event value: " + event.getValue());
+    }
+
+    @Subscribe("slider")
+    public void onSliderChange(Slider.SlideChangedEvent event) {
+        notifications.show("New value is: " + event.getValue());
     }
 }
